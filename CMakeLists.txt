@@ -7,6 +7,6 @@ enable_testing()
 
 add_library(xmlro src/dummy.cpp)
 
-target_include_directories(xmlro PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(xmlro PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_subdirectory(test)
