@@ -8,3 +8,5 @@ find_package(GTest REQUIRED)
 add_executable(xmlro_test test.cpp)
 
 target_link_libraries(xmlro_test gtest gmock -pthread gtest_main)
+
+target_include_directories(xmlro_test PRIVATE ${XMLRO_INCLUDE_DIR})
