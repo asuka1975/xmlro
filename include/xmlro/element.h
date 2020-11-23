@@ -5,6 +5,8 @@
 #ifndef XMLRO_ELEMENT_H
 #define XMLRO_ELEMENT_H
 
+#include "detail/xml_n_tree.h"
+
 namespace xml {
     class element {
     public:
