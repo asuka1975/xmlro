@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(GTest REQUIRED)
 
-add_executable(xmlro_test test.cpp)
+add_executable(xmlro_test test.cpp compile_time_test.cpp)
 
 target_link_libraries(xmlro_test gtest gmock -pthread gtest_main)
 

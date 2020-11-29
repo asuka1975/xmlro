@@ -31,7 +31,9 @@ namespace xml::detail {
     struct has_children<T, std::void_t<typename T::children>> : std::true_type {};
 
 
-    struct xml_text;
+    struct xml_text {
+        using nodable = void;
+    };
 
     template <class T>
     using is_xml_n_node = std::disjunction<std::conjunction<has_attribute<T>, has_children<T>>, std::is_same<T, xml_text>>;
@@ -56,6 +58,7 @@ namespace xml::detail {
         static_assert(N == sizeof...(TChild), "given N is not equal to the number of TChild (xml_n_child)");
         using attribute = xml_n_attribute<M>;
         using children = xml_n_node_list<N, TChild...>;
+        using nodable = std::enable_if_t<all_true_v<std::is_same_v<void, typename TChild::nodable>...>, void>;
     };
 }
 
